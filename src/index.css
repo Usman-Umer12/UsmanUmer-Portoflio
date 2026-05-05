@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+
+
+html {
+  scroll-behavior: smooth;
+  cursor: none; /* Hide default cursor */
+}
+
+body {
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  cursor: none; /* Hide default cursor */
+  position: relative;
+  background: linear-gradient(#6f00ff, #000000);
+  color: white;
+}
+
+
