@@ -24,7 +24,7 @@ const HeroSection = () => {
             delay: 1.3,
             duration: 1.5,
           }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold z-10 mb-6 text-white"
+          className="text-2xl md:text-7xl lg:text-8xl font-bold z-10 mb-6 text-blue"
         >
          Fast Reliable <br />
         Web Develop
