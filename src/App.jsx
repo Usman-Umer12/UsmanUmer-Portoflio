@@ -1,64 +1,39 @@
-import { useEffect, useState } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Header from "./components/Header"
-import HeroSection from "./components/HeroSection"
-import CustomCursor from "./components/CustomCursor"
-import AboutSection from "./components/AboutSection"
-import ProjectsSection from "./components/ProjectsSection"
-import ProgressBar from "./components/ProgressBar"
-import ContentSection from "./components/ContentSection"
-import Loading from "./components/Loading"
-import Experience from "./components/Experience"
-import ServicesSection from "./components/ServicesSection"
-import Skills from "./components/Skills"
-import Footer from "./components/Footer"
+import { Routes, Route } from "react-router-dom";
 
+import Navbar from "./Componenets/Navber";
+import Home from "./Componenets/Home";
+import About from "./Componenets/About";
+import Skills from "./Componenets/Skills";
+import Project from "./Componenets/Project";
+import Expertise from "./Componenets/Expertise";
+import Testimonial from "./Componenets/Testimonial";
+import Contact from "./Componenets/Contact";
+import AboutPage from "./Pages/AboutPage";
 
-
-export default function App() {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    ScrollTrigger.refresh()
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
-
+function HomePage() {
   return (
     <>
-      {loading && <Loading onFinish={() => setLoading(false)} />}
-
-      {!loading && (
-        <Router>
-          <ProgressBar />
-          <Header />
-          <CustomCursor />
-
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <HeroSection />
-                  <AboutSection />
-                  <ProjectsSection />
-                  <Experience />
-                  <ContentSection />
-                  <ServicesSection/>
-                  <Skills />
-                </>
-              }
-            />
-          </Routes>
-
-          <Footer />
-        </Router>
-      )}
+      <Home />
+      <About />
+      <Skills />
+      <Project />
+      <Expertise />
+      <Testimonial />
+      <Contact />
     </>
-  )
+  );
+}
+
+export default function App() {
+  return (
+    <div className="bg-[#000919] min-h-screen">
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        
+        <Route path="/AboutPage" element={<AboutPage />} />
+      </Routes>
+    </div>
+  );
 }
